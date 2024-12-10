@@ -1,0 +1,257 @@
+/*Paleta de colores*/
+:root{
+    --blanco: #ffffff; 
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+
+}
+/*Globales*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;   /*Hack para box Model*/
+    scroll-snap-type: y mandatory ;
+}
+
+/*Scrool Snap*/
+
+.servicios,
+.navegacion-pincipal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+*, *:before, *:after{       
+    box-sizing: inherit;
+}
+body{
+    font-size: 10px; /* 1rem = 10px */
+    font-family: "Krub", sans-serif;
+    background-image: linear-gradient( to top, var(--grisClaro) 0%, var(--blanco));
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;  /*le quita la raya del link*/
+    text-transform: uppercase;  /*convierte en mayuscula*/
+    font-weight: bold;   /*estilo negrita*/
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+/*Cuando te colocas encima del botón*/
+.boton:hover{
+    cursor: pointer;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.56);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.56);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.56);
+    background-color: var(--blanco);
+    padding: 2rem;                  /*separación de las letras a la caja*/
+}
+/*Tipografía*/
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+/*Titulos*/
+.titulo span{
+    font-size: 2rem;
+}
+/*Utilidades*/
+.w-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px ) {
+    .w-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/*Navegación Principal*/
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-pincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navegacion-pincipal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size:2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+@media (min-width: 480px) {
+    .navegacion-pincipal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion-pincipal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+/*Hero*/
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;             /*serparar del hero desde abajo*/
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgb( 0 0 0 / 60% );
+    width: 100%;
+    height: 100%;
+
+
+/*Sirve para centrar items horizontal y verticalmente puedo reutilizarlo*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+@media (min-width: 768px) { 
+    .servicios{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+    }
+}
+
+/*padre servicio*/
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*hijo servicio*/
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;    /* o también 400px*/
+}
+/*hijo servicio*/
+.servicio p{
+    line-height: 2; /* espcaiado entre cada texto*/
+    text-align: center;
+}
+/*hijo servicio*/
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;  /*Se ve mejor que el center*/
+    align-items: center;
+}
+
+/*Formulario*/
+
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100% ); /*toma el menor valor, es preferible usarlo en formularios*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /*Texto en mayuscula*/
+    color: var(--primario);
+    font-weight: 700;    
+}
+/*Dividir el formulario*/
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        font-size: 1.3rem;
+        grid-template-columns: 1fr 1fr; /*Dividimos en 2 la columna*/
+        column-gap: 2rem; /*separación de las columnas*/
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){  /*Se usa solo si quiero seleccionar algo en específico si se repite*/
+        grid-column: 1/3;
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+.input-text{
+    width: 100%;  /*Toma todo el rango*/
+    border: none;
+    padding: 1.5rem;  /*tamano de celdas*/
+}
+
+.footer{
+    text-align: center;
+
+}
+
